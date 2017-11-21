@@ -4,8 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Run ´git clone https://github.com/SoundsUp/Client.git´ to download the repository on yout local machine.
-Run ´npm install´ to install the project dependencies.
+Run `git clone https://github.com/SoundsUp/Client.git` to download the repository on yout local machine.
+
+Run `npm install` to install the project dependencies.
 
 ## Development server
 
