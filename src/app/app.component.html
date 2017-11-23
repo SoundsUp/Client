@@ -1,6 +1,6 @@
 <button class="btn btn-primary" (click)="getSomeData()">Sum data?</button>
 
-<p>
+<p *ngIf="user">
   {{user.id}} <br>
   {{user.avatar}} <br>
   {{user.email}} <br>
