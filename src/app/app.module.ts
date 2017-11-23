@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { CommonModule } from "@angular/common";
+import { MessageService } from "./message.service";
+import { AppService } from "./app.service";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -10,9 +14,15 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AppService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
