@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/styles/styles.less"
+        "assets/styles/styles.less",
+        "../node_modules/bootstrap-material-design-icons/css/material-icons.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
