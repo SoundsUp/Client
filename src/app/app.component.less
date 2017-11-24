@@ -9,9 +9,12 @@
 }
 @media (min-width: 768px) {
   .sidebar {
-    //width: 5rem;
+    width: @sidebar-size;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
     z-index: 1000;
-    height: 100vh;
     display: block;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
@@ -77,14 +80,13 @@
 
 
 .conversation {
-  padding: @spacing;
+
   height: 100vh;
   background-color: @conversation-bg;
 }
 @media (min-width: 768px) {
   .conversation {
-    padding-right: 2 * @spacing;
-    padding-left: 2 * @spacing;
+    margin-left: @sidebar-size;
   }
 }
 .conversation .page-header {
