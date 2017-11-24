@@ -1,0 +1,59 @@
+@import "../assets/styles/variables";
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    //width: 5rem;
+    z-index: 1000;
+    height: 100vh;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: @sidebar-bg;
+  }
+}
+
+.logo {
+  padding: 0 2em;
+  background-color: @brand-primary;
+}
+
+.profile {
+  padding: 2em;
+  background-color: darken(@sidebar-bg, 10%);
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: center right;
+  }
+
+  .description {
+    margin: 2em 0;
+  }
+
+  .profile-action {
+    margin-bottom: 2em;
+  }
+}
+
+.conversation {
+  padding: 20px;
+  height: 100vh;
+  background-color: @conversation-bg;
+}
+@media (min-width: 768px) {
+  .conversation {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.conversation .page-header {
+  margin-top: 0;
+}

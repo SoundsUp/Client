@@ -1,11 +1,51 @@
-<button class="btn btn-primary" (click)="getSomeData()">Sum data?</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <div class="row logo">
+        <h1>
+          <i class="mdi mdi-music-note"></i>
+          {{title}}
+        </h1>
+      </div>
+        <div *ngIf="user" class="row profile">
+          <div class="media">
+            <div class="media-left">
+              <img class="media-object avatar" src="{{user.avatar}}" alt="Generic placeholder thumbnail">
 
-<p *ngIf="user">
-  {{user.id}} <br>
-  {{user.avatar}} <br>
-  {{user.email}} <br>
-  {{user.description}} <br>
-  {{user.displayName}} <br>
-</p>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{user.displayName}}</h4>
+              <span class="text-muted">{{user.email}}</span>
 
+            </div>
+            <div>
+              <p class="description">{{user.description}}</p>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-block profile-action" (click)="getSomeData()">
+              <i class="mdi mdi-person"></i>
+              Get user with id 1
+            </button>
+              <button class="btn btn-default btn-block profile-action">
+                <i class="mdi mdi-create"></i>
+                Edit profile
+              </button>
+              <button class="btn btn-default btn-block">
+                <i class="mdi mdi-person"></i>
+                Logout
+              </button>
 
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-10 conversation">
+      <h1 class="page-header">Conversation</h1>
+
+    </div>
+  </div>
+</div>
