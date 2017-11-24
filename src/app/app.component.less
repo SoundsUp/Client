@@ -1,5 +1,8 @@
 @import "../assets/styles/variables";
 
+/* Utils */
+
+
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
@@ -17,41 +20,71 @@
 }
 
 .logo {
-  padding: 0 2em;
-  background-color: @brand-primary;
+  padding: 0 @spacing @spacing;
+  background-color: darken(@sidebar-bg, 15%);
 }
 
 .profile {
-  padding: 2em;
+  padding: @spacing;
   background-color: darken(@sidebar-bg, 10%);
 
-  .avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-
-    object-fit: cover;
-    object-position: center right;
-  }
-
-  .description {
-    margin: 2em 0;
-  }
-
   .profile-action {
-    margin-bottom: 2em;
+    margin-bottom: @spacing;
   }
 }
 
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin-right: @spacing / 2;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+.expand {
+  font-size: @font-size-h1;
+  vertical-align:middle;
+}
+
+.online {
+  color: @brand-success;
+}
+
+.description {
+  margin: @spacing 0;
+}
+.conversation-profile {
+  padding: @spacing;
+
+  h2 {
+    margin-bottom: @spacing / 2;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .media {
+   padding: @spacing / 2 @spacing;
+  &:hover {
+    background-color: darken(@sidebar-bg, 5%);
+  }
+  }
+}
+
+
+
 .conversation {
-  padding: 20px;
+  padding: @spacing;
   height: 100vh;
   background-color: @conversation-bg;
 }
 @media (min-width: 768px) {
   .conversation {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 2 * @spacing;
+    padding-left: 2 * @spacing;
   }
 }
 .conversation .page-header {

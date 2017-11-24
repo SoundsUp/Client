@@ -7,6 +7,7 @@ import { CommonModule } from "@angular/common";
 import { MessageService } from "./message.service";
 import { AppService } from "./app.service";
 import { HttpClientModule } from "@angular/common/http";
+import { PrototypingService } from "./prototyping.service";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   providers: [
     AppService,
-    MessageService
+    MessageService,
+    PrototypingService,
   ],
   bootstrap: [AppComponent]
 })
