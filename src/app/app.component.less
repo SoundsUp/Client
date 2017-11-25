@@ -10,7 +10,7 @@
   .sidebar {
     width: @sidebar-size;
     position: fixed;
-    top: 0;
+    top: @top-size;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -21,25 +21,45 @@
   }
 }
 
-.logo {
+.topbar() {
+  left: 0;
+  top: 0;
+  position: fixed;
+  height: @top-size;
+  background-color: darken(@sidebar-bg, 15%);
+  overflow: hidden;
+}
+
+.logo-topbar {
+  .topbar();
+  width: @sidebar-size;
+
   h1 {
     margin: @spacing / 2;
+    .noselect();
   }
-  background-color: darken(@sidebar-bg, 15%);
-  overflow: auto;
+
+  i {
+    margin-right: @spacing / 2;
+    cursor: pointer;
+  }
+}
+
+.conversation-topbar {
+  .topbar();
+  left: @sidebar-size;
+  right: 0;
 }
 
 .conversation {
   height: 100vh;
   background-color: @conversation-bg;
-}
 
-@media (min-width: 768px) {
-  .conversation {
+  &.has-sidebar {
     margin-left: @sidebar-size;
   }
 }
 
-.conversation .page-header {
-  margin-top: 0;
+.conversation {
+  padding-top: @top-size;
 }

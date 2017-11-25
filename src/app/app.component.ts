@@ -6,12 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'SoundsUp';
+  title: string = 'SoundsUp';
+  isSidebarOpen: boolean = true;
 
   constructor() {
   }
 
-  ngOnInit() {
+  onMenuToggle() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
 }
