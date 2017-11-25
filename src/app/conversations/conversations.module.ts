@@ -4,6 +4,7 @@ import { SearchComponent } from './search/search.component';
 import { ConversationsListComponent } from "./conversations-list/conversations-list.component";
 import { ConversationsComponent } from './conversations.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { PrototypingService } from "../prototyping.service";
 
 @NgModule({
   imports: [
@@ -14,6 +15,8 @@ import { ConversationComponent } from './conversation/conversation.component';
     ConversationsListComponent,
     ConversationsComponent,
     ConversationComponent
-  ]
+  ],
+  exports: [ConversationsComponent],
+  providers: [PrototypingService]
 })
 export class ConversationsModule { }

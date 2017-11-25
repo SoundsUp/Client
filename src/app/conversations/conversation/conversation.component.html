@@ -1,3 +1,15 @@
-<p>
-  conversation works!
-</p>
+<div (click)="onConversationClick()" class="media">
+  <div class="media-left">
+    <img class="media-object avatar" [src]="conversation.user.avatar"
+         alt="Avatar">
+  </div>
+  <div class="media-body">
+    <h5>{{conversation.user.displayName}}</h5>
+  </div>
+  <div *ngIf="conversation.isOnline" class="media-right">
+    <h5 class="online">
+      <i class="mdi mdi-lens"></i>
+    </h5>
+  </div>
+</div>
+

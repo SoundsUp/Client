@@ -6,26 +6,7 @@
       </div>
 
       <app-profile></app-profile>
-
-
-      <div class="conversations-list">
-        <h2>Conversations</h2>
-
-        <div *ngFor="let conversation of conversationList" class="media">
-          <div class="media-left">
-            <img class="media-object conversations-list-avatar" src="{{conversation.avatar}}"
-                 alt="Generic placeholder thumbnail">
-          </div>
-          <div class="media-body">
-            <h5>{{conversation.displayName}}</h5>
-          </div>
-          <div *ngIf="conversation.isOnline" class="media-right">
-            <h5 class="conversations-list-online">
-              <i class="mdi mdi-lens"></i>
-            </h5>
-          </div>
-        </div>
-      </div>
+      <app-conversations></app-conversations>
     </div>
     <div class="conversation">
       <h1 class="page-header">Conversation</h1>
@@ -33,3 +14,5 @@
     </div>
   </div>
 </div>
+
+

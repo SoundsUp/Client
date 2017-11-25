@@ -4,5 +4,4 @@ export class User {
   displayName: string;
   description: string;
   avatar: string;
-  isOnline?: boolean;
 }

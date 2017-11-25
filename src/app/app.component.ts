@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { AppService } from "./app.service";
-import { PrototypingService } from "./prototyping.service";
-import { User } from "./shared/models/user.model";
-
 
 @Component({
   selector: 'app-root',
@@ -11,16 +7,11 @@ import { User } from "./shared/models/user.model";
 })
 export class AppComponent {
   title = 'SoundsUp';
-  conversationList: User[];
 
-
-  constructor(private appService : AppService,
-              private prototypingService: PrototypingService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.conversationList = this.prototypingService.getConversationList();
   }
-
 
 }

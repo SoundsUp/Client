@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.avatar {
+  .rounded(50px);
+}
+
+.online {
+  color: @brand-success;
+}
+
+.media {
+  padding: @spacing;
+  margin: 0;
+  &:hover {
+    background-color: darken(@sidebar-bg, 5%);
+  }
+}

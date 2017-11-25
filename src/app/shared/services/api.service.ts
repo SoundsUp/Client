@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { MessageService } from "./message.service";
+import { LogService } from "./log.service";
 import { Endpoint } from "../enums/endpoint.enum";
 
 @Injectable()
@@ -10,7 +10,7 @@ export class ApiService {
 
   private url = 'http://localhost:61851/api';
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: LogService) {}
 
   /**
    * Returns the string representation of url corresponding to an api endpoint
@@ -41,7 +41,7 @@ export class ApiService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  /** Log a HeroService message with the LogService */
   public log(message: string) {
     this.messageService.add('HeroService: ' + message);
   }
