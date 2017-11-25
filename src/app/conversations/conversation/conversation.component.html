@@ -1,4 +1,4 @@
-<div (click)="onConversationClick()" class="media">
+<div (click)="onConversationClick()" [ngClass]="{media: true, active: conversation.isSelected}">
   <div class="media-left">
     <img class="media-object avatar" [src]="conversation.user.avatar"
          alt="Avatar">

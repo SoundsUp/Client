@@ -9,15 +9,21 @@ import { PrototypingService } from "../../prototyping.service";
 })
 export class ConversationsListComponent implements OnInit {
   conversationList: Conversation[];
+  selectedConversation: Conversation;
 
   constructor(private prototypingService: PrototypingService) {
   }
 
   ngOnInit() {
     this.conversationList = this.prototypingService.getConversationList();
+    this.onSelect(this.conversationList[0]);
   }
 
   onSelect(conversation) {
-    console.log(conversation);
+    if (conversation) {
+      this.conversationList.forEach(conversation => conversation.isSelected = false);
+      conversation.isSelected = true;
+      this.selectedConversation = conversation;
+    }
   }
 }

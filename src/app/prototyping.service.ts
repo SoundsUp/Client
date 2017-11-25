@@ -31,8 +31,7 @@ export class PrototypingService {
           description: 'Such description'
         },
 
-        isOnline: true,
-        isSelected: true
+        isOnline: true
       },
       {
         id: 2,
