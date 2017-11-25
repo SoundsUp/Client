@@ -1,15 +1,14 @@
 <div *ngIf="user" class="profile">
   <div class="media" (click)="toggleProfile()">
     <div class="media-left">
-      <img class="media-object profile-avatar" src="{{user.avatar}}" alt="Generic placeholder thumbnail">
+      <img class="media-object profile-avatar" [src]="user.avatar" alt="Generic placeholder thumbnail">
     </div>
     <div class="media-body">
       <h4>{{user.displayName}}</h4>
       <span class="text-muted">{{user.email}}</span>
     </div>
     <div class="media-left profile-expand">
-      <i
-        [ngClass]="{'mdi': true, 'mdi-expand-more': !isExpandedProfile,  'mdi-expand-less': isExpandedProfile}"></i>
+      <i [ngClass]="{'mdi': true, 'mdi-expand-more': !isExpandedProfile,  'mdi-expand-less': isExpandedProfile}"></i>
     </div>
   </div>
 
