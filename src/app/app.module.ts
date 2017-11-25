@@ -11,10 +11,12 @@ import { ProfileModule } from "./profile/profile.module";
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from "./profile/profile.component";
+import { ConversationsListComponent } from './conversations-list/conversations-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConversationsListComponent
   ],
   imports: [
     BrowserModule,
