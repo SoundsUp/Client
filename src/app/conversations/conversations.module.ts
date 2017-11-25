@@ -16,7 +16,7 @@ import { PrototypingService } from "../prototyping.service";
     ConversationsComponent,
     ConversationComponent
   ],
-  exports: [ConversationsComponent],
+  exports: [ConversationsComponent, ConversationComponent],
   providers: [PrototypingService]
 })
 export class ConversationsModule { }

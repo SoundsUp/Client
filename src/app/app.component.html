@@ -8,12 +8,12 @@
     </div>
 
     <div class="conversation-topbar">
-      <h1>Conversation</h1>
+      <app-conversation [conversation]="currentConversation" [isTopbar]="true"></app-conversation>
     </div>
 
     <div *ngIf="isSidebarOpen" class="sidebar">
       <app-profile></app-profile>
-      <app-conversations></app-conversations>
+      <app-conversations (select)="onConversationSelect($event)"></app-conversations>
     </div>
 
     <div [ngClass]="{conversation: true, 'has-sidebar': isSidebarOpen}">

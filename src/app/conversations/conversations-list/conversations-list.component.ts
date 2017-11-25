@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Conversation } from "../../shared/models/conversation.model";
 import { PrototypingService } from "../../prototyping.service";
 
@@ -8,6 +8,7 @@ import { PrototypingService } from "../../prototyping.service";
   styleUrls: ['./conversations-list.component.less']
 })
 export class ConversationsListComponent implements OnInit {
+  @Output() select: EventEmitter<Conversation> = new EventEmitter();
   conversationList: Conversation[];
   selectedConversation: Conversation;
 
@@ -21,6 +22,7 @@ export class ConversationsListComponent implements OnInit {
 
   onSelect(conversation) {
     if (conversation) {
+      this.select.emit(conversation);
       this.conversationList.forEach(conversation => conversation.isSelected = false);
       conversation.isSelected = true;
       this.selectedConversation = conversation;

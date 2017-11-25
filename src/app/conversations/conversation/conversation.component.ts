@@ -8,6 +8,7 @@ import { Conversation } from "../../shared/models/conversation.model";
 })
 export class ConversationComponent implements OnInit {
   @Input() conversation: Conversation;
+  @Input() isTopbar?: boolean;
   @Output() select: EventEmitter<Conversation> = new EventEmitter();
 
   constructor() { }
