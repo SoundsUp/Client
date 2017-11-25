@@ -1,33 +1,29 @@
 <div class="container-fluid">
   <div class="row">
     <div class="sidebar">
-      <div class="row logo">
-        <h1>
-          <i class="mdi mdi-music-note"></i>
-          {{title}}
-        </h1>
+      <div class="logo">
+        <h1>{{title}}</h1>
       </div>
-      <div *ngIf="user" class="row profile">
+      <div *ngIf="user" class="profile">
         <div class="media">
           <div class="media-left">
-            <img class="media-object avatar" src="{{user.avatar}}" alt="Generic placeholder thumbnail">
-
+            <img class="media-object profile-avatar" src="{{user.avatar}}" alt="Generic placeholder thumbnail">
           </div>
           <div class="media-body">
-            <h4 class="">{{user.displayName}}</h4>
+            <h4>{{user.displayName}}</h4>
             <span class="text-muted">{{user.email}}</span>
-
           </div>
-          <div class="media-left expand" (click)="toggleProfile()">
-              <i [ngClass]="{'mdi': true, 'mdi-expand-more': !isExpandedProfile,  'mdi-expand-less': isExpandedProfile}"></i>
+          <div class="media-left profile-expand" (click)="toggleProfile()">
+            <i
+              [ngClass]="{'mdi': true, 'mdi-expand-more': !isExpandedProfile,  'mdi-expand-less': isExpandedProfile}"></i>
           </div>
 
           <div *ngIf="isExpandedProfile">
-            <div>
-              <p class="description">{{user.description}}</p>
+            <div class="profile-description">
+              <p>{{user.description}}</p>
             </div>
             <div>
-              <button class="btn btn-primary btn-block profile-action" (click)="getSomeData()">
+              <button class="btn btn-default btn-block profile-action" (click)="getSomeData()">
                 <i class="mdi mdi-person"></i>
                 Get user with id 1
               </button>
@@ -35,7 +31,7 @@
                 <i class="mdi mdi-create"></i>
                 Edit profile
               </button>
-              <button class="btn btn-default btn-block">
+              <button class="btn btn-primary btn-block">
                 <i class="mdi mdi-person"></i>
                 Logout
               </button>
@@ -46,20 +42,19 @@
         </div>
       </div>
 
-      <div class="row conversation-profile">
+      <div class="conversations-list">
         <h2>Conversations</h2>
 
         <div *ngFor="let conversation of conversationList" class="media">
           <div class="media-left">
-            <img class="media-object avatar" src="{{conversation.avatar}}" alt="Generic placeholder thumbnail">
-
+            <img class="media-object conversations-list-avatar" src="{{conversation.avatar}}"
+                 alt="Generic placeholder thumbnail">
           </div>
           <div class="media-body">
             <h5>{{conversation.displayName}}</h5>
           </div>
-
           <div *ngIf="conversation.isOnline" class="media-right">
-            <h5 class="online">
+            <h5 class="conversations-list-online">
               <i class="mdi mdi-lens"></i>
             </h5>
           </div>

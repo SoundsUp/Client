@@ -1,0 +1,14 @@
+@import "variables";
+
+/* This mixin makes a circle avatar where the image is placed centrally and covers the circle.
+ * Works well with different image sizes.
+ * By default size is 80px
+ */
+.rounded(@size: 80px) {
+  width: @size;
+  height: @size;
+  margin-right: @spacing / 2;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center right;
+}

@@ -1,12 +1,11 @@
 @import "../assets/styles/variables";
-
-/* Utils */
-
+@import "../assets/styles/mixins";
 
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
 }
+
 @media (min-width: 768px) {
   .sidebar {
     width: @sidebar-size;
@@ -23,72 +22,69 @@
 }
 
 .logo {
-  padding: 0 @spacing @spacing;
+  h1 {
+    margin: @spacing / 2;
+  }
   background-color: darken(@sidebar-bg, 15%);
+  overflow: auto;
 }
 
 .profile {
   padding: @spacing;
   background-color: darken(@sidebar-bg, 10%);
 
-  .profile-action {
+  &-avatar {
+    .rounded(80px);
+  }
+
+  &-description {
+    margin: @spacing * 2 0;
+  }
+
+  &-action {
     margin-bottom: @spacing;
   }
+
+  &-expand {
+    font-size: @font-size-h1;
+    vertical-align: middle;
+  }
 }
 
-.avatar {
-  width: 80px;
-  height: 80px;
-  margin-right: @spacing / 2;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center right;
-}
-
-.expand {
-  font-size: @font-size-h1;
-  vertical-align:middle;
-}
-
-.online {
-  color: @brand-success;
-}
-
-.description {
-  margin: @spacing 0;
-}
-.conversation-profile {
-  padding: @spacing;
+.conversations-list {
 
   h2 {
-    margin-bottom: @spacing / 2;
+    margin: @spacing / 2;
   }
 
-  .avatar {
-    width: 50px;
-    height: 50px;
+  &-avatar {
+    .rounded(50px);
+  }
+
+  &-online {
+    color: @brand-success;
   }
 
   .media {
-   padding: @spacing / 2 @spacing;
-  &:hover {
-    background-color: darken(@sidebar-bg, 5%);
-  }
+    padding: @spacing;
+    margin: 0;
+    &:hover {
+      background-color: darken(@sidebar-bg, 5%);
+    }
   }
 }
 
-
-
 .conversation {
-
   height: 100vh;
   background-color: @conversation-bg;
 }
+
 @media (min-width: 768px) {
   .conversation {
     margin-left: @sidebar-size;
   }
 }
+
 .conversation .page-header {
   margin-top: 0;
 }
