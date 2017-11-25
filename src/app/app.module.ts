@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 
+import { AppService } from "./app.service";
+import { ApiService } from "./shared/services/api.service";
+import { MessageService } from "./shared/services/message.service";
+import { PrototypingService } from "./prototyping.service";
+import { ProfileModule } from "./profile/profile.module";
 
 import { AppComponent } from './app.component';
-import { CommonModule } from "@angular/common";
-import { MessageService } from "./message.service";
-import { AppService } from "./app.service";
-import { HttpClientModule } from "@angular/common/http";
-import { PrototypingService } from "./prototyping.service";
-
+import { ProfileComponent } from "./profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { PrototypingService } from "./prototyping.service";
   imports: [
     BrowserModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ProfileModule
   ],
   providers: [
     AppService,
+    ApiService,
     MessageService,
     PrototypingService,
   ],

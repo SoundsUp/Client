@@ -1,0 +1,37 @@
+<div *ngIf="user" class="profile">
+  <div class="media">
+    <div class="media-left">
+      <img class="media-object profile-avatar" src="{{user.avatar}}" alt="Generic placeholder thumbnail">
+    </div>
+    <div class="media-body">
+      <h4>{{user.displayName}}</h4>
+      <span class="text-muted">{{user.email}}</span>
+    </div>
+    <div class="media-left profile-expand" (click)="toggleProfile()">
+      <i
+        [ngClass]="{'mdi': true, 'mdi-expand-more': !isExpandedProfile,  'mdi-expand-less': isExpandedProfile}"></i>
+    </div>
+
+    <div *ngIf="isExpandedProfile">
+      <div class="profile-description">
+        <p>{{user.description}}</p>
+      </div>
+      <div>
+        <button class="btn btn-default btn-block profile-action" (click)="getSomeData()">
+          <i class="mdi mdi-person"></i>
+          Get user with id 1
+        </button>
+        <button class="btn btn-default btn-block profile-action">
+          <i class="mdi mdi-create"></i>
+          Edit profile
+        </button>
+        <button class="btn btn-primary btn-block">
+          <i class="mdi mdi-person"></i>
+          Logout
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
