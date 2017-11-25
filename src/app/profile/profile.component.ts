@@ -19,13 +19,17 @@ export class ProfileComponent implements OnInit {
     this.user = this.prototypingService.getUser();
   }
 
-  getSomeData() {
+  getSomeData(): void {
     this.profileService.getUser(1)
       .subscribe(user => this.user = user);
   }
 
-  toggleProfile() {
+  toggleProfile(): void {
     this.isExpandedProfile = !this.isExpandedProfile;
+  }
+
+  logout(): void {
+    this.user = null;
   }
 
 }
