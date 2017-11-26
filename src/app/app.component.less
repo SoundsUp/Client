@@ -1,24 +1,17 @@
 @import "../assets/styles/variables";
 @import "../assets/styles/mixins";
 
-/* Hide for mobile, show later */
 .sidebar {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .sidebar {
-    width: @sidebar-size;
-    position: fixed;
-    top: @top-size;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: @sidebar-bg;
-  }
+  width: @sidebar-size;
+  position: fixed;
+  top: @top-size;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: @sidebar-bg;
 }
 
 .topbar() {
