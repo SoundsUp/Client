@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Conversation } from "./shared/models/conversation.model";
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent {
   isSidebarOpen: boolean = true;
   currentConversation: Conversation;
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
   }
 
   onMenuToggle() {
@@ -20,6 +20,7 @@ export class AppComponent {
 
   onConversationSelect(conversation) {
     this.currentConversation = conversation;
+    this.cdr.detectChanges();
   }
 
 }

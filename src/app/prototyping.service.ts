@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from "./shared/models/user.model";
 import { Conversation } from "./shared/models/conversation.model";
+import { Message } from "./shared/models/message.model";
 
 @Injectable()
 export class PrototypingService {
@@ -77,6 +78,36 @@ export class PrototypingService {
         },
         isOnline: true
       }
+    ];
+  }
+
+  getMessages(conversation: Conversation): Message[] {
+    return [
+      {
+        id: 0,
+        userFromId: 4,
+        date: '12/10/2017',
+        msgContent: ''
+      },
+      {
+        id: 1,
+        userFromId: 1,
+        msgContent: 'Some text',
+        date: '16/12/2017'
+      },
+      {
+        id: 2,
+        userFromId: 4,
+        msgContent: 'Some text',
+        date: '16/12/2017'
+      },
+      {
+        id: 3,
+        userFromId: 4,
+        msgContent: 'Some text',
+        date: '16/12/2017'
+      }
+
     ];
   }
 

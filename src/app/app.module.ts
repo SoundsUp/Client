@@ -10,6 +10,7 @@ import { ProfileModule } from "./profile/profile.module";
 
 import { AppComponent } from './app.component';
 import { ConversationsModule } from "./conversations/conversations.module";
+import { MessagesModule } from "./messages/messages.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ConversationsModule } from "./conversations/conversations.module";
     CommonModule,
     HttpClientModule,
     ProfileModule,
-    ConversationsModule
+    ConversationsModule,
+    MessagesModule
   ],
   providers: [
     AppService,

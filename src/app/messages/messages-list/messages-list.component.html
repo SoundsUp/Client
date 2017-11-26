@@ -1,0 +1,5 @@
+<div class="messages-container">
+  <div *ngFor="let message of messageList">
+    <app-message [profile]="profile" [conversation]="conversation" [message]="message"></app-message>
+  </div>
+</div>

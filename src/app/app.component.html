@@ -17,7 +17,7 @@
     </div>
 
     <div [ngClass]="{conversation: true, 'has-sidebar': isSidebarOpen}">
-      <p>Messages will go here</p>
+      <app-messages [conversation]="currentConversation"></app-messages>
     </div>
 
   </div>

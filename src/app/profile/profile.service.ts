@@ -27,5 +27,4 @@ export class ProfileService {
         catchError(this.apiService.handleError<User>(`getUser id=${id}`))
       );
   }
-
 }
