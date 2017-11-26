@@ -1,0 +1,22 @@
+<div class="message-form">
+  <form class="media" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">
+    <div class="form-group media-body">
+      <textarea class="form-control" name="message" placeholder="Type your message here..."
+             required
+             [(ngModel)]="message"
+                #messageInput="ngModel">
+
+      </textarea>
+      <!--<p *ngIf="messageInput.invalid && submitted && messageInput.errors.required"-->
+      <!--class="text-danger">-->
+      <!--You must type a message before sending!-->
+      <!--</p>-->
+    </div>
+    <div class="media-right">
+      <button type="submit" class="btn btn-success btn-block">
+        <i class="mdi mdi-send"></i>
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Conversation } from "../shared/models/conversation.model";
+import { Message } from "../shared/models/message.model";
 
 @Component({
   selector: 'app-messages',
@@ -13,6 +14,10 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit() {
     // TODO get messages from a conversation
+  }
+
+  onMessageEnter(message: string): void {
+    console.log(message);
   }
 
 }
