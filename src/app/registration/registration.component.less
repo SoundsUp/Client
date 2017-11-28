@@ -6,24 +6,24 @@
   margin-bottom: @spacing;
 }
 
-.avatars {
+.avatar {
   overflow: auto;
   margin-bottom: @spacing;
-}
 
-.avatar-container {
-  float: left;
-  margin: 5px;
-  padding: 3px;
-  .rounded(56px);
+  &-container {
+    float: left;
+    margin: 5px;
+    padding: 3px;
+    .rounded(56px);
 
-  .avatar {
-    .rounded(50px);
-    cursor: pointer;
-  }
+    .avatar-image {
+      .rounded(50px);
+      cursor: pointer;
+    }
 
-  &.selected {
-    background-color: @brand-primary;
+    &.selected {
+      background-color: @brand-primary;
+    }
   }
 }
 

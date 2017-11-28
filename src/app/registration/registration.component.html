@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
 
-    <form [formGroup]="registrationForm">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <fieldset>
 
         <h2>Account details</h2>
@@ -37,10 +37,10 @@
         <div class="form-group">
           <label>Avatar</label>
           <small id="avatarHelp" class="form-text text-muted">Please choose one of the following avatars :)</small>
-          <div class="avatars">
+          <div class="avatar">
             <div *ngFor="let avatar of avatars; let i = index"
-                 [ngClass]="{'avatar-container': true, 'selected': avatar === selectedAvatar}" (click)="onAvatarSelect(avatar)">
-              <img [src]="avatar" alt="Profile option {{index}}" class="avatar">
+                 [ngClass]="{'avatar-container': true, 'selected': avatar === registrationForm.get('avatar').value}" (click)="onAvatarSelect(avatar)">
+              <img [src]="avatar" alt="Profile option {{index}}" class="avatar-image">
             </div>
           </div>
         </div>

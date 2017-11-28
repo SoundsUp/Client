@@ -10,7 +10,6 @@ import { PrototypingService } from "../prototyping.service";
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   avatars: string[];
-  selectedAvatar: string;
 
   constructor(private prototypingService: PrototypingService,
               private formBuilder: FormBuilder) {
@@ -22,17 +21,24 @@ export class RegistrationComponent implements OnInit {
       email: ['', Validators.required],
       password: '',
       displayName: '',
-      description: ''
+      description: '',
+      avatar: ''
     });
   }
 
   ngOnInit() {
     this.avatars = this.prototypingService.getAvatars();
-    this.selectedAvatar = this.avatars[0];
+    this.onAvatarSelect(this.avatars[0]);
   }
 
   onAvatarSelect(avatar: string) {
-    this.selectedAvatar = avatar;
+    this.registrationForm.patchValue({
+      avatar: avatar
+    });
+  }
+
+  onSubmit() {
+    console.log(this.registrationForm.value);
   }
 
 }
