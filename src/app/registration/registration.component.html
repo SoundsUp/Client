@@ -1,3 +1,50 @@
-<p>
-  registration works!
-</p>
+<div class="panel panel-default form-box">
+  <div class="panel-heading">
+    <h1>Registration form</h1>
+  </div>
+  <div class="panel-body">
+
+    <form [formGroup]="registrationForm">
+      <fieldset>
+
+        <h2>Account details</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp"
+                 placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+        </div>
+        <h2>Profile</h2>
+        <div class="form-group">
+          <label for="displayName">Display name</label>
+          <input type="text" class="form-control" id="displayName" formControlName="displayName"
+                 aria-describedby="displayNameHelp"
+                 placeholder="Enter email">
+          <small id="displayNameHelp" class="form-text text-muted">User name you wish to display on your profile and
+            conversations.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" formControlName="description" id="description"
+                    placeholder="Type a short bio here...">
+        </textarea>
+        </div>
+        <div class="form-group">
+          <label>Avatar</label>
+          <div>PICTURES WILL GO HERE :D</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+
+      </fieldset>
+
+
+    </form>
+  </div>
+</div>
+
+
