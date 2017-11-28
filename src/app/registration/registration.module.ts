@@ -4,13 +4,14 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { RegistrationComponent } from "./registration.component";
 import { PrototypingService } from "../prototyping.service";
+import { RegistrationService } from "../registration.service";
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
-  providers: [PrototypingService],
+  providers: [PrototypingService, RegistrationService],
   declarations: [RegistrationComponent],
   exports: [RegistrationComponent],
 })
