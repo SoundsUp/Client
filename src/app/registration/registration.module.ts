@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { RegistrationComponent } from "./registration.component";
 import { PrototypingService } from "../prototyping.service";
-import { RegistrationService } from "../registration.service";
+import { RegistrationService } from "./registration.service";
 
 @NgModule({
   imports: [
@@ -15,4 +15,5 @@ import { RegistrationService } from "../registration.service";
   declarations: [RegistrationComponent],
   exports: [RegistrationComponent],
 })
-export class RegistrationModule { }
+export class RegistrationModule {
+}

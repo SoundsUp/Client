@@ -1,12 +1,13 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
-import { User } from "./shared/models/user.model";
-import { ApiService } from "./shared/services/api.service";
-import { Endpoint } from "./shared/enums/endpoint.enum";
-import { Register } from "./shared/models/register.model";
+
 import { tap, catchError } from "rxjs/operators";
-import { RegisterResponseModel } from "./shared/models/user.model.1";
+import { ApiService } from "../shared/services/api.service";
+import { Endpoint } from "../shared/enums/endpoint.enum";
+import { RegisterResponseModel } from "../shared/models/user.model.1";
+import { Register } from "../shared/models/register.model";
+
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class RegistrationService {
   constructor(private http: HttpClient, private apiService: ApiService) {
     this.url = this.apiService.getUrl(Endpoint.Registration);
   }
-  
+
   register(body: Register): Observable<RegisterResponseModel> {
     const url = `${this.url}`;
     return this.http.post<RegisterResponseModel>(url, body)

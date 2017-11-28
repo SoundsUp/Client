@@ -8,7 +8,7 @@ import { Endpoint } from "../enums/endpoint.enum";
 @Injectable()
 export class ApiService {
 
-  private url = 'http://localhost:61851/api';
+  private url = 'http://localhost:61851/';
 
   constructor(private messageService: LogService) {}
 
