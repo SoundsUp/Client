@@ -1,0 +1,58 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.sidebar {
+  width: @sidebar-size;
+  position: fixed;
+  top: @top-size;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: @sidebar-bg;
+}
+
+.topbar() {
+  left: 0;
+  top: 0;
+  position: fixed;
+  height: @top-size;
+  background-color: @topbar-bg;
+  overflow: hidden;
+}
+
+.logo-topbar {
+  .topbar();
+  width: @sidebar-size;
+
+  h1 {
+    margin: @spacing / 2;
+    .noselect();
+  }
+
+  i {
+    margin-right: @spacing / 2;
+    cursor: pointer;
+  }
+}
+
+.conversation-topbar {
+  .topbar();
+  left: @sidebar-size;
+  right: 0;
+}
+
+.conversation {
+  height: 100vh;
+  background-color: @conversation-bg;
+
+  &.has-sidebar {
+    margin-left: @sidebar-size;
+  }
+}
+
+.conversation {
+  padding-top: @top-size;
+}

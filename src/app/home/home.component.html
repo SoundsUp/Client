@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="logo-topbar">
+      <h1>
+        <i class="mdi mdi-menu" (click)="onMenuToggle()"></i>
+        {{title}}
+      </h1>
+    </div>
+
+    <div class="conversation-topbar">
+      <app-conversation [conversation]="currentConversation" [isTopbar]="true"></app-conversation>
+    </div>
+
+    <div *ngIf="isSidebarOpen" class="sidebar">
+      <app-profile></app-profile>
+      <app-conversations (select)="onConversationSelect($event)"></app-conversations>
+    </div>
+
+    <div [ngClass]="{conversation: true, 'has-sidebar': isSidebarOpen}">
+      <app-messages [conversation]="currentConversation"></app-messages>
+    </div>
+
+  </div>
+</div>
+
+

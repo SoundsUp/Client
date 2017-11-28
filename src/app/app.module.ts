@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
+import { AppRouterModule } from "./app-router.module";
+import { RegistrationModule } from "./registration/registration.module";
+import { LoginModule } from "./login/login.module";
+import { HomeModule } from "./home/home.module";
+
 import { AppService } from "./app.service";
 import { ApiService } from "./shared/services/api.service";
 import { LogService } from "./shared/services/log.service";
-import { ProfileModule } from "./profile/profile.module";
 
 import { AppComponent } from './app.component';
-import { ConversationsModule } from "./conversations/conversations.module";
-import { MessagesModule } from "./messages/messages.module";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { MessagesModule } from "./messages/messages.module";
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    ProfileModule,
-    ConversationsModule,
-    MessagesModule
+    AppRouterModule,
+
+    RegistrationModule,
+    LoginModule,
+    HomeModule
   ],
   providers: [
     AppService,
