@@ -1,0 +1,36 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+#avatarHelp {
+  display: block;
+  margin-bottom: @spacing;
+}
+
+.avatars {
+  overflow: auto;
+  margin-bottom: @spacing;
+}
+
+.avatar-container {
+  float: left;
+  margin: 5px;
+  padding: 3px;
+  .rounded(56px);
+
+  .avatar {
+    .rounded(50px);
+    cursor: pointer;
+  }
+
+  &.selected {
+    background-color: @brand-primary;
+  }
+}
+
+button {
+  clear: both;
+  display: block;
+}
+
+
+

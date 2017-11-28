@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PrototypingService } from "../prototyping.service";
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +9,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
+  avatars: string[];
+  selectedAvatar: string;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private prototypingService: PrototypingService,
+              private formBuilder: FormBuilder) {
     this.createForm();
   }
 
@@ -23,6 +27,12 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.avatars = this.prototypingService.getAvatars();
+    this.selectedAvatar = this.avatars[0];
+  }
+
+  onAvatarSelect(avatar: string) {
+    this.selectedAvatar = avatar;
   }
 
 }

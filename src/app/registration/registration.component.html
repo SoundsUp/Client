@@ -23,7 +23,7 @@
           <label for="displayName">Display name</label>
           <input type="text" class="form-control" id="displayName" formControlName="displayName"
                  aria-describedby="displayNameHelp"
-                 placeholder="Enter email">
+                 placeholder="Enter display name...">
           <small id="displayNameHelp" class="form-text text-muted">User name you wish to display on your profile and
             conversations.
           </small>
@@ -36,7 +36,13 @@
         </div>
         <div class="form-group">
           <label>Avatar</label>
-          <div>PICTURES WILL GO HERE :D</div>
+          <small id="avatarHelp" class="form-text text-muted">Please choose one of the following avatars :)</small>
+          <div class="avatars">
+            <div *ngFor="let avatar of avatars; let i = index"
+                 [ngClass]="{'avatar-container': true, 'selected': avatar === selectedAvatar}" (click)="onAvatarSelect(avatar)">
+              <img [src]="avatar" alt="Profile option {{index}}" class="avatar">
+            </div>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
 
