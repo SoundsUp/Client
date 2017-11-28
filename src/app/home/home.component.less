@@ -4,7 +4,7 @@
 .sidebar {
   width: @sidebar-size;
   position: fixed;
-  top: @top-size;
+  top: @navbar-height;
   bottom: 0;
   left: 0;
   z-index: 1000;
@@ -18,24 +18,15 @@
   left: 0;
   top: 0;
   position: fixed;
-  height: @top-size;
-  background-color: @topbar-bg;
+  height: @navbar-height;
+  background-color: @navbar-dafault-bg;
   overflow: hidden;
 }
 
 .logo-topbar {
   .topbar();
   width: @sidebar-size;
-
-  h1 {
-    margin: @spacing / 2;
-    .noselect();
-  }
-
-  i {
-    margin-right: @spacing / 2;
-    cursor: pointer;
-  }
+  .logo();
 }
 
 .conversation-topbar {
@@ -54,5 +45,5 @@
 }
 
 .conversation {
-  padding-top: @top-size;
+  padding-top: @navbar-height;
 }

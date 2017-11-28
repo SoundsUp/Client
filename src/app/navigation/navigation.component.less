@@ -1,0 +1,15 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+nav .navbar-header a.navbar-btn {
+  margin-right: @spacing;
+}
+
+.navbar-logo {
+  .logo();
+  @media only screen and (min-width: @grid-float-breakpoint) {
+    i {
+      display: none;
+    }
+  }
+}

@@ -13,10 +13,12 @@ import { ApiService } from "./shared/services/api.service";
 import { LogService } from "./shared/services/log.service";
 
 import { AppComponent } from './app.component';
+import { NavigationComponent } from "./navigation/navigation.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

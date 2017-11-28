@@ -1,0 +1,18 @@
+<header>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-left navbar-logo">
+        <h1>
+          <i class="mdi mdi-menu collapsed" data-toggle="collapse"   data-target="#bs-example-navbar-collapse-1"></i>
+          {{title}}
+        </h1>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['registration']">Registration</a></li>
+          <li class="active"><a [routerLink]="['login']">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

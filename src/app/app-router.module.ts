@@ -3,9 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { RegistrationModule } from "./registration/registration.module";
-import { LoginModule } from "./login/login.module";
-import { HomeModule } from "./home/home.module";
 
 const routes: Routes = [
   {
