@@ -1,9 +1,14 @@
 <div class="message-form">
   <form class="media" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">
+    <div class="media-left">
+      <button class="btn btn-default btn-block">
+        <i class="mdi mdi-music-note"></i>
+      </button>
+    </div>
     <div class="form-group media-body">
       <textarea class="form-control" name="message" placeholder="Type your message here..."
-             required
-             [(ngModel)]="message"
+                required
+                [(ngModel)]="message"
                 #messageInput="ngModel">
 
       </textarea>
@@ -12,6 +17,7 @@
       <!--You must type a message before sending!-->
       <!--</p>-->
     </div>
+
     <div class="media-right">
       <button type="submit" class="btn btn-success btn-block">
         <i class="mdi mdi-send"></i>
