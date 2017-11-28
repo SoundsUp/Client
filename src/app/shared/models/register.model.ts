@@ -1,8 +1,7 @@
-export class User {
-  id: number;
+export class Register {
   email: string;
   displayName: string;
   description: string;
+  password: string;
   avatar: string;
 }
-

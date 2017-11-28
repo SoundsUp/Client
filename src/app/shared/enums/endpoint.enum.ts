@@ -1,3 +1,4 @@
 export enum Endpoint {
-  Users = 'users'
+  Users = 'users',
+  Registration = 'register'
 }
