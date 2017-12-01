@@ -13,6 +13,7 @@ import { LogService } from "./shared/services/log.service";
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from "./navigation/navigation.component";
+import { AuthService } from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NavigationComponent } from "./navigation/navigation.component";
   ],
   providers: [
     ApiService,
+    AuthService,
     LogService
   ],
   bootstrap: [AppComponent]

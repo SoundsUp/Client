@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { LoginService } from "./login.service";
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private loginService: LoginService) {
+              private authService: AuthService) {
     this.createForm();
    }
 
@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form);
-    this.loginService.login(form)
-      .subscribe((res) => console.log(res));
+    this.authService.login(form);
   }
 }
