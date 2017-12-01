@@ -4,5 +4,5 @@ export class Message {
   msgContent: string;
   date: string;
   // TODO Add song message
-  // track: Track
+  // track: SpotifyTrack
 }

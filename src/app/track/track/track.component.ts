@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Track } from "../../shared/models/track.model";
+import { SpotifyTrack } from "../../shared/models/spotify-track.model";
 
 @Component({
   selector: 'app-track',
@@ -7,11 +7,11 @@ import { Track } from "../../shared/models/track.model";
   styleUrls: []
 })
 export class TrackComponent {
-  @Input() track: Track;
+  @Input() track: SpotifyTrack;
   @Input() hasSelectionButton: boolean = false;
   @Input() hasUnselectionButton: boolean = false;
-  @Output() trackSelected = new EventEmitter<Track>();
-  @Output() trackUnselected = new EventEmitter<Track>();
+  @Output() trackSelected = new EventEmitter<SpotifyTrack>();
+  @Output() trackUnselected = new EventEmitter<SpotifyTrack>();
 
   select() {
     this.trackSelected.emit(this.track);

@@ -1,47 +1,50 @@
 import { Injectable } from "@angular/core";
-// import { Http, Headers, RequestOptions, URLSearchParams } from "@angular/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
-import { Observable }     from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { Track } from "../../shared/models/track.model";
-import { HttpClient } from "@angular/common/http";
-import { PrototypingService } from "../../prototyping.service";
+import { SpotifyTrack } from "../../shared/models/spotify-track.model";
+import { ApiService } from "../../shared/services/api.service";
+import { Endpoint } from "../../shared/enums/endpoint.enum";
+import { SpotifyToken } from "../../shared/models/spotify-token.model";
 
 
 @Injectable()
 export class SpotifySearchService {
-  spotifyApi = 'https://api.spotify.com';
-  token = '';
+  spotifyApi: string;
+  token: string;
 
-  constructor(private http: HttpClient, private prototypingService: PrototypingService) {}
+  constructor(private http: HttpClient, private apiService: ApiService) {
+    this.spotifyApi = 'https://api.spotify.com';
+  }
 
-  // constructor(private http: Http, private apiService: ApiService) {}
+  search(track: string): Observable<SpotifyTrack[]> {
+    if (track) {
+      console.log('Searching track', track);
+      let url = `${this.spotifyApi}/v1/search?q=${track}&type=track`;
+      let headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+      let options = {headers: headers};
 
-  search(track: string): Observable<Track[]> {
-    // if (track) {
-    //   let headers = new Headers({"Authorization": `Bearer ${this.token}`});
-    //   let options = new RequestOptions({headers: headers});
-    //   return
-      // this.http.get(`${this.spotifyApi}/v1/search?q=${track}&type=track`, options)
-      //   .map((response:any) => response.json().tracks.items as Track[]);
-    // } else {
-    //   return Observable.of<Track[]>([]);
-    // }
+      return this.http.get(url, options)
+        .map((response: any) => {
+          console.log('RESPONSE', response);
+          return (<any>response).tracks.items as SpotifyTrack[]
+        });
 
-    let res = this.prototypingService.getSpotifySearch();
-    return Observable.of<Track[]>((<any>res).tracks.items as Track[]);
-
+    } else {
+      return Observable.of<SpotifyTrack[]>([]);
+    }
   }
 
   fetchApplicationToken() {
-    // this.http.get(`${this.apiService.url}/spotify/token`)
-    //   .map(response => response.json().idToken)
-    //   .subscribe(
-    //     (token) => this.token = token,
-    //     (error)=> this.apiService.handleError(error)
-    //   );
+    let url = this.apiService.getUrl(Endpoint.SpotifyToken);
+    this.http.get<SpotifyToken>(url)
+      .subscribe(
+        (spotifyToken) => this.token = spotifyToken.access_token,
+        (error) => this.apiService.handleError(error)
+      );
 
   }
 }

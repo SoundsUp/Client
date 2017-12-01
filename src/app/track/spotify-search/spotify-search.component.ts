@@ -10,7 +10,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { SpotifySearchService } from './spotify-search.service';
-import { Track } from "../../shared/models/track.model";
+import { SpotifyTrack } from "../../shared/models/spotify-track.model";
 
 @Component({
   selector: 'app-spotify-search',
@@ -18,14 +18,14 @@ import { Track } from "../../shared/models/track.model";
   styleUrls: ['./spotify-search.component.less']
 })
 export class SpotifySearchComponent implements OnInit {
-  @Output() tracks = new EventEmitter<Track[]>();
+  @Output() tracks = new EventEmitter<SpotifyTrack[]>();
   private searchTerms = new Subject<string>();
 
   constructor(private spotifyService: SpotifySearchService) {
   }
 
   ngOnInit(): void {
-    // this.spotifyService.fetchApplicationToken();
+    this.spotifyService.fetchApplicationToken();
 
     this.searchTerms
       .debounceTime(300)        // wait 300ms after each keystroke before considering the term
@@ -33,8 +33,12 @@ export class SpotifySearchComponent implements OnInit {
       // switch to new observable each time the term changes
       .switchMap(term => this.spotifyService.search(term))
       .subscribe(
-        (tracks) => this.tracks.emit(tracks),
-        (error) => this.tracks.emit([])
+        (tracks) => {
+          console.log('tracks', tracks);
+          this.tracks.emit(tracks)},
+        (error) => {
+          this.tracks.emit([])
+        }
       );
   }
 

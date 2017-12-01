@@ -1,4 +1,4 @@
-export class Track {
+export class SpotifyTrack {
   id: string;
   name: string;
 
