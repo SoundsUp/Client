@@ -4,11 +4,12 @@ import { of } from 'rxjs/observable/of';
 
 import { LogService } from "./log.service";
 import { Endpoint } from "../enums/endpoint.enum";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class ApiService {
 
-  private url = 'http://localhost:61851/';
+  private url = environment.url;
 
   constructor(private messageService: LogService) {}
 
