@@ -5,10 +5,12 @@ import { TrackSelectorComponent } from "./track-selector/track-selector.componen
 import { TrackListComponent } from "./track-list/track-list.component";
 import { TrackComponent } from "./track/track.component";
 import { SpotifySearchService } from "./track-search/spotify-search.service";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [
     SpotifySearchService
