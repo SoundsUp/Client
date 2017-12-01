@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "http://soundsupwebhost.azurewebsites.net/"
+  url: "https://soundsupwebhost.azurewebsites.net"
 };
