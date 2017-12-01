@@ -52,8 +52,28 @@ export class AuthService {
     this.router.navigate([`/${RouteName.Home}`]);
   }
 
+  logout(): void {
+    this.authToken = null;
+    this.account = null;
+    this.router.navigate([`/${RouteName.Login}`]);
+  }
+
+  getLoggedInUser(): User {
+    return this.account;
+  }
+
   isLoggedIn(): boolean {
     return !!this.authToken;
   }
+
+  // /** GET user by id. Return 404 if id not found */
+  // getUser(id: number): Observable<User> {
+  //   const url = `${this.url}/${id}`;
+  //   return this.http.get<User>(url)
+  //     .pipe(
+  //       tap(_ => this.apiService.log(`fetched user id=${id}`)),
+  //       catchError(this.apiService.handleError<User>(`getUser id=${id}`))
+  //     );
+  // }
 
 }

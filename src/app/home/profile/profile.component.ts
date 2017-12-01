@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from "../../shared/models/user.model";
-import { ProfileService } from "./profile.service";
-import { PrototypingService } from "../../prototyping.service";
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -12,16 +11,10 @@ export class ProfileComponent implements OnInit {
   user: User;
   isExpandedProfile: boolean = false;
 
-  constructor(private profileService : ProfileService,
-              private prototypingService: PrototypingService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.user = this.prototypingService.getUser();
-  }
-
-  getSomeData(): void {
-    this.profileService.getUser(1)
-      .subscribe(user => this.user = user);
+    this.user = this.authService.getLoggedInUser();
   }
 
   toggleProfile(): void {
@@ -29,7 +22,7 @@ export class ProfileComponent implements OnInit {
   }
 
   logout(): void {
-    this.user = null;
+    this.authService.logout();
   }
 
 }
