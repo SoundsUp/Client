@@ -2,6 +2,10 @@
   "name": "sounds-up",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "ng": "ng",
     "startProd": "node server.js",
@@ -14,22 +18,22 @@
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "^5.0.0",
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
-    "@angular/http": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
-    "@angular/router": "^5.0.0",
+    "@angular/animations": "5.0.0",
+    "@angular/common": "5.0.0",
+    "@angular/compiler": "5.0.0",
+    "@angular/core": "5.0.0",
+    "@angular/forms": "5.0.0",
+    "@angular/http": "5.0.0",
+    "@angular/platform-browser": "5.0.0",
+    "@angular/platform-browser-dynamic": "5.0.0",
+    "@angular/router": "5.0.0",
     "bootstrap-less": "3.3.8",
-    "bootstrap-material-design-icons": "^2.2.0",
+    "bootstrap-material-design-icons": "2.2.0",
     "bootswatch": "3.3.7",
-    "core-js": "^2.4.1",
+    "core-js": "2.4.1",
     "jquery": "3.2.1",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "rxjs": "5.5.2",
+    "zone.js": "0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.5.3",
