@@ -8,13 +8,11 @@ import { RegistrationModule } from "./registration/registration.module";
 import { LoginModule } from "./login/login.module";
 import { HomeModule } from "./home/home.module";
 
-import { AppService } from "./app.service";
 import { ApiService } from "./shared/services/api.service";
 import { LogService } from "./shared/services/log.service";
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from "./navigation/navigation.component";
-import { TrackModule } from "./track/track.module";
 
 @NgModule({
   declarations: [
@@ -29,11 +27,9 @@ import { TrackModule } from "./track/track.module";
 
     RegistrationModule,
     LoginModule,
-    HomeModule,
-    TrackModule
+    HomeModule
   ],
   providers: [
-    AppService,
     ApiService,
     LogService
   ],

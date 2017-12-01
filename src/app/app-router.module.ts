@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { TrackSelectorComponent } from "./track/track-selector/track-selector.component";
 
 const routes: Routes = [
   {
@@ -22,12 +21,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
-  },
-  {
-    path: 'track',
-    component: TrackSelectorComponent
-  },
-
+  }
 ];
 
 @NgModule({

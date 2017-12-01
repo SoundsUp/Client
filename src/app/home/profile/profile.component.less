@@ -1,0 +1,24 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.profile {
+  padding: @spacing;
+  background-color: darken(@sidebar-bg, 10%);
+
+  &-avatar {
+    .rounded(80px);
+  }
+
+  &-description {
+    margin: @spacing * 2 0;
+  }
+
+  &-action {
+    margin-bottom: @spacing;
+  }
+
+  &-expand {
+    font-size: @font-size-h1;
+    vertical-align: middle;
+  }
+}
