@@ -13,6 +13,7 @@ import { Login } from "../models/login.model";
 import { LoginResponseModel } from "../models/login-response.model";
 import { User } from "../models/user.model";
 import { RouteName } from "../enums/route-name.enum";
+import { Session } from "../enums/session.enum";
 
 @Injectable()
 export class AuthService {
@@ -23,6 +24,7 @@ export class AuthService {
   constructor(private http: HttpClient,
               private apiService: ApiService,
               private router: Router) {
+    this.getLocalStorage();
   }
 
   register(body: Register): Subscription {
@@ -47,16 +49,29 @@ export class AuthService {
 
   auth(loginResponseModel: LoginResponseModel): void {
     console.log(loginResponseModel);
-    this.authToken = loginResponseModel.token;
-    this.account = loginResponseModel.account;
+    this.setLocalStorage(loginResponseModel.token, loginResponseModel.account);
     this.router.navigate([`/${RouteName.Home}`]);
   }
 
   logout(): void {
-    this.authToken = null;
-    this.account = null;
+    this.setLocalStorage(null, null);
     this.router.navigate([`/${RouteName.Login}`]);
   }
+
+  setLocalStorage(token: string, account: User) {
+    this.authToken = token;
+    this.account = account;
+
+    localStorage.setItem(Session.Token, token);
+    localStorage.setItem(Session.Account, JSON.stringify(account));
+
+  }
+
+  getLocalStorage() {
+    this.authToken = localStorage.getItem(Session.Token);
+    this.account = JSON.parse(localStorage.getItem(Session.Account));
+  }
+
 
   getLoggedInUser(): User {
     return this.account;
@@ -66,14 +81,14 @@ export class AuthService {
     return !!this.authToken;
   }
 
-  // /** GET user by id. Return 404 if id not found */
-  // getUser(id: number): Observable<User> {
-  //   const url = `${this.url}/${id}`;
-  //   return this.http.get<User>(url)
-  //     .pipe(
-  //       tap(_ => this.apiService.log(`fetched user id=${id}`)),
-  //       catchError(this.apiService.handleError<User>(`getUser id=${id}`))
-  //     );
-  // }
+// /** GET user by id. Return 404 if id not found */
+// getUser(id: number): Observable<User> {
+//   const url = `${this.url}/${id}`;
+//   return this.http.get<User>(url)
+//     .pipe(
+//       tap(_ => this.apiService.log(`fetched user id=${id}`)),
+//       catchError(this.apiService.handleError<User>(`getUser id=${id}`))
+//     );
+// }
 
 }
