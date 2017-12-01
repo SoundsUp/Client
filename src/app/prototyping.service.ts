@@ -114,7 +114,7 @@ export class PrototypingService {
   getAvatars(): string[] {
     return [
       'http://cdn3-www.dogtime.com/assets/uploads/gallery/pembroke-welsh-corgi-dog-breed-pictures/prance-8.jpg',
-   'https://i.pinimg.com/564x/26/32/2f/26322f3c9216e25158694169c92ab720.jpg',
+      'https://i.pinimg.com/564x/26/32/2f/26322f3c9216e25158694169c92ab720.jpg',
       'https://i.pinimg.com/564x/14/13/a3/1413a3e2fcec57d335a0e46219f14851.jpg',
       'https://i.imgur.com/FX600C5.jpg',
       'https://i.pinimg.com/564x/71/05/67/710567ef646cab76c326841b719ed44e.jpg',

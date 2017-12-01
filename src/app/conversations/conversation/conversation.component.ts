@@ -20,6 +20,4 @@ export class ConversationComponent implements OnInit {
     this.select.emit(this.conversation);
   }
 
-
-
 }
