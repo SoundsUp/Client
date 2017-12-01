@@ -14,6 +14,7 @@ import { LogService } from "./shared/services/log.service";
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from "./navigation/navigation.component";
+import { TrackModule } from "./track/track.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavigationComponent } from "./navigation/navigation.component";
 
     RegistrationModule,
     LoginModule,
-    HomeModule
+    HomeModule,
+    TrackModule
   ],
   providers: [
     AppService,
