@@ -1,19 +1,28 @@
 export class Track {
-  id: number;
-  spotifyId: string;
+  id: string;
   name: string;
 
-  previewUrl: string;
+  preview_url: string;
+
   album: {
-    id: string,
-    name:string,
-    imageUrl: string
+    id: string;
+    name: string;
+    images: {
+      height: number;
+      url: string;
+      width: number
+    }[]
   };
-  artist: {
-    id: string,
-    name: string
-  };
-  externalUrls: {
+
+  artists: {
+    id: string;
+    name: string;
+    external_urls: {
+      spotify: string
+    }
+  }[];
+
+  external_urls: {
     spotify: string
   };
 }

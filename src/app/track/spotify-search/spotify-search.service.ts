@@ -7,15 +7,15 @@ import 'rxjs/add/observable/of';
 
 import { Track } from "../../shared/models/track.model";
 import { HttpClient } from "@angular/common/http";
+import { PrototypingService } from "../../prototyping.service";
 
-import * as res from "./response.json";
 
 @Injectable()
 export class SpotifySearchService {
   spotifyApi = 'https://api.spotify.com';
   token = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private prototypingService: PrototypingService) {}
 
   // constructor(private http: Http, private apiService: ApiService) {}
 
@@ -30,6 +30,7 @@ export class SpotifySearchService {
     //   return Observable.of<Track[]>([]);
     // }
 
+    let res = this.prototypingService.getSpotifySearch();
     return Observable.of<Track[]>((<any>res).tracks.items as Track[]);
 
   }
