@@ -1,10 +1,19 @@
-<!--<div *ngIf="selectedTrack">-->
-  <!--<app-track [track]="selectedTrack" [hasUnselectionButton]="true" (trackUnselected)="onTrackSelection()"></app-track>-->
-<!--</div>-->
-<!--<div *ngIf="selectedTrack === undefined">-->
-  <!--<track-search (tracks)="setTracks($event)"></track-search>-->
+<div class="panel panel-default form-box">
+  <div class="panel-heading">
+    <h1>Track selector test</h1>
+  </div>
+  <div class="panel-body">
 
-  <!--<track-list [tracks]="tracks" (trackSelected)="onTrackSelection($event)"></track-list>-->
 
-<!--</div>-->
-<!-- Some small test -->
+    <div *ngIf="selectedTrack">
+      <app-track [track]="selectedTrack" [hasUnselectionButton]="true"
+                 (trackUnselected)="onTrackSelection()"></app-track>
+    </div>
+    <div *ngIf="selectedTrack === undefined">
+      <app-spotify-search (tracks)="setTracks($event)"></app-spotify-search>
+
+      <app-track-list [tracks]="tracks" (trackSelected)="onTrackSelection($event)"></app-track-list>
+    </div>
+
+  </div>
+</div>

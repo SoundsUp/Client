@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Track } from "../../shared/models/track.model";
 
 @Component({
@@ -10,7 +10,7 @@ export class TrackSelectorComponent {
 
   tracks: Track[];
   selectedTrack: Track;
-  @Output() selected = new EventEmitter<Track>();
+  // @Output() selected = new EventEmitter<Track>();
 
   constructor() {
     this.tracks = [];
@@ -22,7 +22,8 @@ export class TrackSelectorComponent {
 
   onTrackSelection(track: Track) {
     this.selectedTrack = track;
-    this.selected.emit(track);
+    console.log("selected track", track);
+    // this.selected.emit(track);
   }
 
 }

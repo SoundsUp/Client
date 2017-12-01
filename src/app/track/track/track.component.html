@@ -1,3 +1,17 @@
-<p>
-  track works!
-</p>
+<div class="media">
+  <div class="media-left">
+    <img class="media-object" [src]="track.album.images[2].url" [alt]="track.album.name">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{track.name}}</h4>
+    by <span *ngFor="let artist of track.artists">{{artist.name}} </span>
+  </div>
+  <div class="media-left media-middle">
+    <button *ngIf="hasUnselectionButton" class="btn btn-primary" (click)="unselect()">
+      Unselect
+    </button>
+    <button *ngIf="hasSelectionButton" class="btn btn-primary" (click)="select()">
+      Select
+    </button>
+  </div>
+</div>
