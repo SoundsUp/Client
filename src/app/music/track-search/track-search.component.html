@@ -1,0 +1,15 @@
+<div class="input-group">
+        <span class="input-group-btn" id="search-btn">
+            <button class="btn btn-primary" (click)="search(searchBox.value)">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </span>
+  <input #searchBox (keyup)="search(searchBox.value)"
+         id="search-box"
+         type="text"
+         value=""
+         class="form-control"
+         placeholder="Search Track..."
+         aria-describedby="search-btn"
+  />
+</div>
