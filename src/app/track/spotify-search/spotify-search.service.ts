@@ -30,7 +30,7 @@ export class SpotifySearchService {
     //   return Observable.of<Track[]>([]);
     // }
 
-    return Observable.of<Track[]>(res.tracks.items as Track[]);
+    return Observable.of<Track[]>((<any>res).tracks.items as Track[]);
 
   }
 
