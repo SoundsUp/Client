@@ -16,6 +16,17 @@
 .form-box {
   max-width: @form-size;
   margin: 100px auto;
+
+  button[type=submit] {
+    margin-top: 45px;
+  }
+
+  &.panel-default {
+    background-color: fade(#222, 50%);
+    .panel-heading {
+      background-color: transparent;
+    }
+  }
 }
 
 .form-background {
