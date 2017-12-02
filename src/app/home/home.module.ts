@@ -6,13 +6,15 @@ import { ConversationsModule } from "./conversations/conversations.module";
 import { MessagesModule } from "./messages/messages.module";
 
 import { HomeComponent } from './home.component';
+import { TrackModule } from "./track/track.module";
 
 @NgModule({
   imports: [
     CommonModule,
     ProfileModule,
     ConversationsModule,
-    MessagesModule
+    MessagesModule,
+    TrackModule
   ],
   declarations: [HomeComponent]
 })

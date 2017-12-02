@@ -8,6 +8,7 @@ import { TrackComponent } from "./track/track.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SpotifySearchComponent } from './spotify-search/spotify-search.component';
 import { SpotifySearchService } from "./spotify-search/spotify-search.service";
+import { TrackDialogComponent } from "./track-dialog/track-dialog.component";
 
 @NgModule({
   imports: [
@@ -21,8 +22,9 @@ import { SpotifySearchService } from "./spotify-search/spotify-search.service";
     TrackSelectorComponent,
     TrackComponent,
     TrackListComponent,
-    SpotifySearchComponent
+    SpotifySearchComponent,
+    TrackDialogComponent
   ],
-  exports: [TrackSelectorComponent]
+  exports: [TrackDialogComponent]
 })
 export class TrackModule { }
