@@ -44,7 +44,7 @@ export class SpotifySearchService {
     this.http.get<SpotifyToken>(url)
       .subscribe(
         (spotifyToken) => {
-          console.log(spotifyToken, spotifyToken.access_token);
+          console.log(spotifyToken, (<SpotifyToken>spotifyToken).access_token);
           localStorage.setItem(Session.SpotifyToken, spotifyToken.access_token);
         },
         (error) => this.apiService.handleError(error)
