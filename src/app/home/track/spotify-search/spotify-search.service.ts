@@ -22,7 +22,7 @@ export class SpotifySearchService {
 
   search(track: string): Observable<SpotifyTrack[]> {
     if (track) {
-      let token = localStorage.getItem(Session.SpotifyToken)
+      let token = localStorage.getItem(Session.SpotifyToken);
       console.log('Searching track', track);
       let url = `${this.spotifyApi}/v1/search?q=${track}&type=track`;
       let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -43,7 +43,10 @@ export class SpotifySearchService {
     let url = this.apiService.getUrl(Endpoint.SpotifyToken);
     this.http.get<SpotifyToken>(url)
       .subscribe(
-        (spotifyToken) => localStorage.setItem(Session.SpotifyToken, spotifyToken.access_token),
+        (spotifyToken) => {
+          console.log(spotifyToken, spotifyToken.access_token);
+          localStorage.setItem(Session.SpotifyToken, spotifyToken.access_token);
+        },
         (error) => this.apiService.handleError(error)
       );
 
