@@ -9,12 +9,12 @@ import { SpotifyTrack } from "../../../shared/models/spotify-track.model";
 import { ApiService } from "../../../shared/services/api.service";
 import { Endpoint } from "../../../shared/enums/endpoint.enum";
 import { SpotifyToken } from "../../../shared/models/spotify-token.model";
+import { Session } from "../../../shared/enums/session.enum";
 
 
 @Injectable()
 export class SpotifySearchService {
   spotifyApi: string;
-  token: string;
 
   constructor(private http: HttpClient, private apiService: ApiService) {
     this.spotifyApi = 'https://api.spotify.com';
@@ -22,9 +22,10 @@ export class SpotifySearchService {
 
   search(track: string): Observable<SpotifyTrack[]> {
     if (track) {
+      let token = localStorage.getItem(Session.SpotifyToken)
       console.log('Searching track', track);
       let url = `${this.spotifyApi}/v1/search?q=${track}&type=track`;
-      let headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+      let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       let options = {headers: headers};
 
       return this.http.get(url, options)
@@ -42,7 +43,7 @@ export class SpotifySearchService {
     let url = this.apiService.getUrl(Endpoint.SpotifyToken);
     this.http.get<SpotifyToken>(url)
       .subscribe(
-        (spotifyToken) => this.token = spotifyToken.access_token,
+        (spotifyToken) => localStorage.setItem(Session.SpotifyToken, spotifyToken.access_token),
         (error) => this.apiService.handleError(error)
       );
 
