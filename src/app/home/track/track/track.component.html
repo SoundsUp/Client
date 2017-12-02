@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media" (click)="select()">
   <div class="media-left">
     <img class="media-object" [src]="track.album.images[2].url" [alt]="track.album.name">
   </div>
@@ -7,11 +7,13 @@
     by <span *ngFor="let artist of track.artists">{{artist.name}} </span>
   </div>
   <div class="media-left media-middle">
-    <button *ngIf="hasUnselectionButton" class="btn btn-primary" (click)="unselect()">
-      Unselect
-    </button>
-    <button *ngIf="hasSelectionButton" class="btn btn-primary" (click)="select()">
-      Select
-    </button>
+    <span *ngIf="hasUnselectionButton" class="btn btn-default" (click)="unselect()">
+      <i class="mdi mdi-close"></i>
+    </span>
+  </div>
+  <div *ngIf="hasUnselectionButton" class="media-left media-middle">
+    <span class="btn btn-primary" (click)="send()">
+      <i class="mdi mdi-send"></i>
+    </span>
   </div>
 </div>

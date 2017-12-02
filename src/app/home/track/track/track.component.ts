@@ -14,7 +14,9 @@ export class TrackComponent {
   @Output() trackUnselected = new EventEmitter<SpotifyTrack>();
 
   select() {
-    this.trackSelected.emit(this.track);
+    if (this.hasSelectionButton) {
+      this.trackSelected.emit(this.track);
+    }
   }
 
   unselect() {
