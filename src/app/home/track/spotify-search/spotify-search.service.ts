@@ -42,10 +42,14 @@ export class SpotifySearchService {
   fetchApplicationToken() {
     let url = this.apiService.getUrl(Endpoint.SpotifyToken);
     this.http.get<SpotifyToken>(url)
+      .map((response: any) => {
+        console.log(response);
+        return (<SpotifyToken>response).access_token as string
+      })
       .subscribe(
         (spotifyToken) => {
-          console.log(spotifyToken, (<SpotifyToken>spotifyToken).access_token);
-          localStorage.setItem(Session.SpotifyToken, spotifyToken.access_token);
+          console.log(spotifyToken);
+          localStorage.setItem(Session.SpotifyToken, spotifyToken);
         },
         (error) => this.apiService.handleError(error)
       );
