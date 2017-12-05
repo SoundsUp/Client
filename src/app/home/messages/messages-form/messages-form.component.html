@@ -9,7 +9,8 @@
       <textarea class="form-control" name="message" placeholder="Type your message here..."
                 required
                 [(ngModel)]="message"
-                #messageInput="ngModel">
+                #messageInput="ngModel" 
+                (keyup.enter)="onSubmit(messageForm)" >
 
       </textarea>
       <!--<p *ngIf="messageInput.invalid && submitted && messageInput.errors.required"-->
@@ -19,7 +20,7 @@
     </div>
 
     <div class="media-right">
-      <button type="submit" class="btn btn-primary btn-block">
+      <button ng-submit="submit()" type="submit" class="btn btn-primary btn-block">
         <i class="mdi mdi-send"></i>
       </button>
     </div>

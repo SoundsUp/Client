@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { log } from 'util';
 
 @Component({
-  selector: 'app-message-input',
-  templateUrl: './message-form.component.html',
-  styleUrls: ['./message-form.component.less']
+  selector: 'app-messages-form',
+  templateUrl: './messages-form.component.html',
+  styleUrls: ['./messages-form.component.less']
 })
-export class MessageFormComponent {
+export class MessagesFormComponent {
   @Output() enter: EventEmitter<string> = new EventEmitter();
   message: string = '';
   submitted: boolean = false;
