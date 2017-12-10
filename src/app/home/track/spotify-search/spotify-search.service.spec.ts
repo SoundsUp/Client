@@ -3,37 +3,43 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { SpotifySearchService } from './spotify-search.service';
 import { ApiService } from "../../../shared/services/api.service";
+import { LogService } from "../../../shared/services/log.service";
+import { Session } from "../../../shared/enums/session.enum";
 
+describe('Spotify Search Service', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [SpotifySearchService, ApiService, LogService]}
+    );
+  });
 
+  it('should be created', inject([SpotifySearchService], (service: SpotifySearchService) => {
+    expect(service).toBeTruthy();
+  }));
 
-//
-// describe('Spotify Search Service', () => {
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       imports: [HttpClientModule],
-//       providers: [SpotifySearchService, ApiService]}
-//     );
-//   });
-//
-//   it('should be created', inject([SpotifySearchService], (service: SpotifySearchService) => {
-//     expect(service).toBeTruthy();
-//   }));
-//
-//   describe('search()', () => {
-//
-//     it('Spotify Api Url should be', inject([SpotifySearchService], (api) => {
-//       expect(api.spotifyApi).toBe('https://api.spotify.com');
-//
-//     }));
-//
-//     it('Should return Observable<SpotifyTrack[]>',
-//       inject([SpotifySearchService], (searchService) => {
-//         searchService.search('avenged').subscribe((tracks)=>{
-//           expect(tracks.length).toBe(7);
-//         });
-//
-//       }));
-//   });
-//
-//
-// });
+  describe('search()', () => {
+
+    it('Spotify Api Url should be https://api.spotify.com', inject([SpotifySearchService], (api) => {
+      expect(api.spotifyApi).toBe('https://api.spotify.com');
+
+    }));
+
+    it('Should fetch token',
+      inject([SpotifySearchService], (searchService) => {
+        searchService.getSpotifyToken().subscribe((spotifyToken)=> {
+          expect(spotifyToken.toBeTruthy());
+        });
+
+      }));
+
+    it('Should return tracks',
+      inject([SpotifySearchService], (searchService) => {
+        searchService.search('avenged').subscribe((tracks)=>{
+          console.log('tracks', tracks);
+          expect(tracks.length).toBe(7);
+        });
+
+      }));
+  });
+});

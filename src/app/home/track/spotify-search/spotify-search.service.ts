@@ -40,12 +40,7 @@ export class SpotifySearchService {
   }
 
   fetchApplicationToken() {
-    let url = this.apiService.getUrl(Endpoint.SpotifyToken);
-    this.http.get(url)
-      .map((response: any) => {
-        console.log(response);
-        return (<any>response).token as SpotifyToken
-      })
+    this.getSpotifyToken()
       .subscribe(
         (spotifyToken: SpotifyToken) => {
           console.log(spotifyToken);
@@ -53,6 +48,14 @@ export class SpotifySearchService {
         },
         (error) => this.apiService.handleError(error)
       );
+  }
 
+  getSpotifyToken(): Observable<SpotifyToken> {
+    let url = this.apiService.getUrl(Endpoint.SpotifyToken);
+    return this.http.get(url)
+      .map((response: any) => {
+        console.log(response);
+        return (<any>response).token as SpotifyToken
+      });
   }
 }
