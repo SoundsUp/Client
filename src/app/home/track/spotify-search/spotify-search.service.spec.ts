@@ -4,13 +4,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { SpotifySearchService } from './spotify-search.service';
 import { ApiService } from "../../../shared/services/api.service";
 import { LogService } from "../../../shared/services/log.service";
-import { Session } from "../../../shared/enums/session.enum";
 
 describe('Spotify Search Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [SpotifySearchService, ApiService, LogService]}
+        imports: [HttpClientModule],
+        providers: [SpotifySearchService, ApiService, LogService]
+      }
     );
   });
 
@@ -27,7 +27,7 @@ describe('Spotify Search Service', () => {
 
     it('Should fetch token',
       inject([SpotifySearchService], (searchService) => {
-        searchService.getSpotifyToken().subscribe((spotifyToken)=> {
+        searchService.getSpotifyToken().subscribe((spotifyToken) => {
           expect(spotifyToken.toBeTruthy());
         });
 
@@ -35,7 +35,7 @@ describe('Spotify Search Service', () => {
 
     it('Should return tracks',
       inject([SpotifySearchService], (searchService) => {
-        searchService.search('avenged').subscribe((tracks)=>{
+        searchService.search('avenged').subscribe((tracks) => {
           console.log('tracks', tracks);
           expect(tracks.length).toBe(7);
         });
