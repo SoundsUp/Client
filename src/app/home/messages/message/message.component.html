@@ -1,7 +1,7 @@
 <div class="row">
   <div [ngClass]="{media: true, 'col-md-9': true, 'col-md-offset-3': message.userFromId === profile.id}">
     <div *ngIf="message.userFromId !== profile.id" class="media-left media-middle">
-      <img class="media-object avatar" [src]="conversation.user.avatar" alt="...">
+      <img class="media-object avatar" [src]="conversation.avatar" alt="...">
     </div>
     <div class="media-body" [ngClass]="{received: message.userFromId !== profile.id}">
       <p [ngClass]="{'text-right': message.userFromId === profile.id}">

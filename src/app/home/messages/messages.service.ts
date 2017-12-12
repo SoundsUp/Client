@@ -21,7 +21,7 @@ export class MessagesService {
     let headers = this.authService.getAuthHeader();
     let options = {headers: headers};
 
-    return this.http.get<Message[]>(`${url}/${id}`, options)
+    return this.http.get<Message[]>(`${url}/${id}`, options);
     // .pipe(
     //   tap(_ => this.apiService.log(`Getting correspondents`)),
     //   catchError(this.apiService.handleError<Conversation[]>(`Getting correspondents failed}`)),

@@ -23,16 +23,20 @@ export class MessagesComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log('#CONV in MESSAGES', this.conversation);
-    this.messagesService.getMessages(this.conversation.id)
-      .subscribe((messages) => {
-        console.log('# Messages', messages);
+    if (this.conversation) {
+      this.messagesService.getMessages(this.conversation.id)
+      .subscribe((messages: Message[]) => {
         this.messagesList = messages;
-      });
+      }); 
+    } else {
+      console.info('No conversation was found.')
+    }
   }
 
   onMessageEnter(message: string): void {
-    console.log(message);
+    // this.messagesService.sendMessage(message).take(1).subscribe(() => {
+    //   this.messagesService.getMessages.
+    // })
   }
 
 }
