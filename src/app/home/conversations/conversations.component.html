@@ -1,5 +1,5 @@
 <div class="conversations-list">
   <h2>Conversations</h2>
-  <app-conversations-list (select)="onConversationSelect($event)"></app-conversations-list>
+  <app-conversations-list [conversationList]="correspondents" (select)="onConversationSelect($event)"></app-conversations-list>
 </div>
 

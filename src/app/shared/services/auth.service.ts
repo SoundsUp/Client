@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHandler, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { Subscription } from "rxjs/Subscription";
@@ -56,6 +56,12 @@ export class AuthService {
   logout(): void {
     this.setLocalStorage(null, null);
     this.router.navigate([`/${RouteName.Login}`]);
+  }
+
+  getAuthHeader(): HttpHeaders {
+    let token = localStorage.getItem(Session.Token);
+    let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return headers;
   }
 
   setLocalStorage(token: string, account: User) {

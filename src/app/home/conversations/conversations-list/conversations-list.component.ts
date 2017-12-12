@@ -1,23 +1,22 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { Conversation } from "../../../shared/models/conversation.model";
-import { PrototypingService } from "../../../prototyping.service";
-
 
 @Component({
   selector: 'app-conversations-list',
   templateUrl: './conversations-list.component.html'
 })
-export class ConversationsListComponent implements OnInit {
+export class ConversationsListComponent implements OnChanges {
   @Output() select: EventEmitter<Conversation> = new EventEmitter();
-  conversationList: Conversation[];
+  @Input() conversationList: Conversation[];
   selectedConversation: Conversation;
 
-  constructor(private prototypingService: PrototypingService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.conversationList = this.prototypingService.getConversationList();
-    this.onSelect(this.conversationList[0]);
+  ngOnChanges() {
+    if (this.conversationList && this.conversationList.length > 0) {
+      this.onSelect(this.conversationList[0]);
+    }
   }
 
   onSelect(conversation) {

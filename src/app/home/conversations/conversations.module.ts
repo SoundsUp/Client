@@ -4,6 +4,7 @@ import { ConversationsListComponent } from "./conversations-list/conversations-l
 import { ConversationsComponent } from './conversations.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { PrototypingService } from "../../prototyping.service";
+import { ConversationsService } from "./conversations.service";
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { PrototypingService } from "../../prototyping.service";
     ConversationComponent
   ],
   exports: [ConversationsComponent, ConversationComponent],
-  providers: [PrototypingService]
+  providers: [ConversationsService]
 })
 export class ConversationsModule { }

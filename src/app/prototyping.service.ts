@@ -20,7 +20,7 @@ export class PrototypingService {
     };
   }
 
-  getConversationList(): Conversation[] {
+  getConversationList() {
     return [
       {
         id: 1,
