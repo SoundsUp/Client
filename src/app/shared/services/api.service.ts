@@ -19,7 +19,6 @@ export class ApiService {
    * @returns {string} url of specified endpoint
    */
   public getUrl(endpoint: Endpoint): string {
-    console.log('# endpoint', endpoint);
     return `${this.url}/${endpoint}`;
   }
 

@@ -6,13 +6,14 @@ import { MessagesListComponent } from './messages-list/messages-list.component';
 import { PrototypingService } from "../../prototyping.service";
 import { MessagesFormComponent } from './messages-form/messages-form.component';
 import { FormsModule } from "@angular/forms";
+import { MessagesService } from "./messages.service";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  providers: [PrototypingService],
+  providers: [MessagesService],
   declarations: [
     MessagesComponent,
     MessageComponent,

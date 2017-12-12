@@ -24,6 +24,7 @@ export class ConversationsComponent implements OnInit {
   }
 
   onConversationSelect(conversation) {
+    console.log('# conversation was selected', conversation)
     this.select.emit(conversation);
   }
 
