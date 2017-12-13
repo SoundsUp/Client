@@ -1,56 +1,59 @@
-<div class="panel panel-default form-box">
-  <div class="panel-heading">
-    <h1>Register</h1>
-  </div>
-  <div class="panel-body">
+<section class="content form-background">
+  <div class="panel panel-default form-box">
+    <div class="panel-heading">
+      <h1>Register</h1>
+    </div>
+    <div class="panel-body">
 
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
-      <fieldset>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+        <fieldset>
 
-        <h2>Account details</h2>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp"
-                 placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
-        </div>
-        <h2>Profile</h2>
-        <div class="form-group">
-          <label for="displayName">Display name</label>
-          <input type="text" class="form-control" id="displayName" formControlName="displayName"
-                 aria-describedby="displayNameHelp"
-                 placeholder="Enter display name...">
-          <small id="displayNameHelp" class="form-text text-muted">User name you wish to display on your profile and
-            conversations.
-          </small>
-        </div>
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea class="form-control" formControlName="description" id="description"
-                    placeholder="Type a short bio here...">
+          <h2>Account details</h2>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp"
+                   placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+          </div>
+          <h2>Profile</h2>
+          <div class="form-group">
+            <label for="displayName">Display name</label>
+            <input type="text" class="form-control" id="displayName" formControlName="displayName"
+                   aria-describedby="displayNameHelp"
+                   placeholder="Enter display name...">
+            <small id="displayNameHelp" class="form-text text-muted">User name you wish to display on your profile and
+              conversations.
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" formControlName="description" id="description"
+                      placeholder="Type a short bio here...">
         </textarea>
-        </div>
-        <div class="form-group">
-          <label>Avatar</label>
-          <small id="avatarHelp" class="form-text text-muted">Please choose one of the following avatars :)</small>
-          <div class="avatar">
-            <div *ngFor="let avatar of avatars; let i = index"
-                 [ngClass]="{'avatar-container': true, 'selected': avatar === registrationForm.get('avatar').value}" (click)="onAvatarSelect(avatar)">
-              <img [src]="avatar" alt="Profile option {{index}}" class="avatar-image">
+          </div>
+          <div class="form-group">
+            <label>Avatar</label>
+            <small id="avatarHelp" class="form-text text-muted">Please choose one of the following avatars :)</small>
+            <div class="avatar">
+              <div *ngFor="let avatar of avatars; let i = index"
+                   [ngClass]="{'avatar-container': true, 'selected': avatar === registrationForm.get('avatar').value}"
+                   (click)="onAvatarSelect(avatar)">
+                <img [src]="avatar" alt="Profile option {{index}}" class="avatar-image">
+              </div>
             </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
 
-      </fieldset>
+        </fieldset>
 
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 
 
+</section>

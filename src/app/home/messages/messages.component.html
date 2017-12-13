@@ -1,3 +1,6 @@
-<app-messages-list [messageList]="messagesList" [profile]="profile" [conversation]="conversation"></app-messages-list>
+<div class="message-list">
+  <app-messages-list [messageList]="messagesList" [profile]="profile" [conversation]="conversation"></app-messages-list>
+</div>
+
 <app-messages-form (enter)="onMessageEnter($event)"></app-messages-form>
 
