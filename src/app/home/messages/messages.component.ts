@@ -27,16 +27,17 @@ export class MessagesComponent implements OnInit, OnChanges {
       this.messagesService.getMessages(this.conversation.id)
       .subscribe((messages: Message[]) => {
         this.messagesList = messages;
-      }); 
+      });
     } else {
       console.info('No conversation was found.')
     }
   }
 
   onMessageEnter(message: string): void {
-    // this.messagesService.sendMessage(message).take(1).subscribe(() => {
-    //   this.messagesService.getMessages.
-    // })
+    this.messagesService.sendMessage(this.conversation.id, message)
+      .subscribe((message) => {
+       this.messagesList.push(message);
+    })
   }
 
 }
