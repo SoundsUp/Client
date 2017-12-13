@@ -13,5 +13,7 @@ export class MessageComponent {
   @Input() profile: User;
   @Input() conversation: Conversation;
 
-  constructor() {}
+  constructor() {
+    console.log()
+  }
 }
