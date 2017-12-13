@@ -11,18 +11,7 @@ import { Conversation } from "../../../shared/models/conversation.model";
 export class MessagesListComponent {
   @Input() conversation: Conversation;
   @Input() profile: User;
-
-  private _messageList: Message[];
+  @Input() messageList: Message[];
 
   constructor() { }
-
-  @Input('messageList')
-  public set messageList(value: Message[]) {
-    this._messageList = value;
-  }
-
-  public get messageList(): Message[] {
-    return this._messageList;
-  }
-
 }

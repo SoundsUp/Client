@@ -22,10 +22,6 @@ export class MessagesService {
     let options = {headers: headers};
 
     return this.http.get<Message[]>(`${url}/${id}`, options);
-    // .pipe(
-    //   tap(_ => this.apiService.log(`Getting correspondents`)),
-    //   catchError(this.apiService.handleError<Conversation[]>(`Getting correspondents failed}`)),
-    // )
   }
 
 }

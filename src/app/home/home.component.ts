@@ -19,7 +19,6 @@ export class HomeComponent {
   }
 
   onConversationSelect(conversation) {
-    console.log(this.currentConversation);
     this.currentConversation = conversation;
     this.cdr.detectChanges();
   }
