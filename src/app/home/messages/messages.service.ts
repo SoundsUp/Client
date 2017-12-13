@@ -24,7 +24,7 @@ export class MessagesService {
     return this.http.get<Message[]>(`${url}/${id}`, options);
   }
 
-  sendMessage(id: number, message: string): Observable<Message[]> {
+  sendMessage(id: number, message: string): Observable<Message> {
     let url = this.apiService.getUrl(Endpoint.Messages);
     let headers = this.authService.getAuthHeader();
     let options = {headers: headers};
@@ -32,7 +32,7 @@ export class MessagesService {
       msgContent: message
     }
 
-    return this.http.post<Message[]>(`${url}/${id}`, body, options);
+    return this.http.post<Message>(`${url}/${id}`, body, options);
   }
 
 
