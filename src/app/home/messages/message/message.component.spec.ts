@@ -61,7 +61,7 @@ describe('MessageComponent', () => {
   });
 
   it('should align sent messages on right', () => {
-    testHostComponent.message.userFromId = 1;
+    testHostComponent.message.userFrom = 1;
     testHostFixture.detectChanges();
 
     const avatar = testHostFixture.debugElement.query(By.css('.media-right'));
@@ -88,7 +88,8 @@ describe('MessageComponent', () => {
       this.message = {
         id: 10,
         msgContent: 'test message',
-        userFromId: 2,
+        userFrom: 2,
+        userTo: 1,
         date: '2 minutes ago'
       };
 
@@ -102,13 +103,11 @@ describe('MessageComponent', () => {
 
       this.conversation = {
         id: 2,
-        user: {
-          id: 3,
-          avatar: 'https://i.imgur.com/PGS8dFB.jpg',
-          displayName: 'Bakadesu',
-          email: 'usagi@kawaii.com',
-          description: 'Such description'
-        }
+        avatar: 'https://i.imgur.com/PGS8dFB.jpg',
+        displayName: 'Bakadesu',
+        email: 'usagi@kawaii.com',
+        description: 'Such description',
+        timeStamp: '16-12-2017'
       };
     }
   }

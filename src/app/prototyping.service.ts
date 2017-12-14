@@ -85,25 +85,29 @@ export class PrototypingService {
     return [
       {
         id: 0,
-        userFromId: 4,
+        userFrom: 4,
+        userTo: 1,
         date: '12/10/2017',
         msgContent: ''
       },
       {
         id: 1,
-        userFromId: 1,
+        userFrom: 1,
+        userTo: 4,
         msgContent: 'Some text',
         date: '16/12/2017'
       },
       {
         id: 2,
-        userFromId: 4,
+        userFrom: 4,
+        userTo: 1,
         msgContent: 'Some text',
         date: '16/12/2017'
       },
       {
         id: 3,
-        userFromId: 4,
+        userFrom: 4,
+        userTo: 1,
         msgContent: 'Some text',
         date: '16/12/2017'
       }
